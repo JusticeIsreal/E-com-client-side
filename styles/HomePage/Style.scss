@@ -1,0 +1,1196 @@
+// @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@300&family=Source+Code+Pro:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+// global variables
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Orbitron", sans-serif;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(245, 245, 245, 0);
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  display: none;
+  background-color: rgba(65, 105, 225, 0);
+}
+
+$font-family: "Poppins", sans-serif;
+$bg-light: #f9f9f9;
+$font-light: #666;
+$bg-gray: #eee;
+$bg-dark-gray: #444;
+$bg-dark: #342e37;
+$txt-blue: #ff69b4;
+$txt-light-blue: #cfe8ff;
+
+@mixin flexDisplay($justifyProp, $alignProp, $flexDirection) {
+  display: flex;
+  justify-content: $justifyProp;
+  align-items: $alignProp;
+  flex-direction: $flexDirection;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (min-width: 320px) {
+      @content;
+    }
+  }
+  @if $breakpoint==bigphone {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet {
+    @media only screen and (min-width: 1023px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==desktop {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// APP MAIN CON
+.app-main-con {
+  overflow-x: hidden;
+}
+// icons
+.icon {
+  font-size: 30px;
+  color: $txt-blue;
+  cursor: pointer;
+
+  @include responsive(bigphone) {
+    font-size: 40px;
+  }
+}
+// HOME PAGE MAIN CON
+.homepage-main-con {
+  padding: 50px 0;
+  // background: #eee;
+
+  @include responsive(bigphone) {
+    padding: 0;
+  }
+}
+// TOP BAR
+
+.topbar-main-con {
+  @include flexDisplay(space-around, center, column);
+  position: relative;
+  z-index: 200;
+  width: 100vw;
+  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff5f5;
+  box-shadow: 5px 5px 10px $bg-gray;
+
+  .topbar-top-con {
+    @include flexDisplay(space-between, center, row);
+    width: 100vw;
+    height: 50px;
+    padding: 5px 10px;
+    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff5f5;
+    // border: 1px solid red;
+
+    .topbar-top-con-left {
+      @include flexDisplay(space-between, center, row);
+
+      img {
+        // width: 50px;
+        height: 50px;
+        // border: 1px solid red;
+      }
+    }
+    .topbar-top-con-right {
+      // border: 2px solid red;
+      @include flexDisplay(space-between, center, row);
+      .cart-icon-con {
+        // border: 1px solid red;
+        @include flexDisplay(space-between, center, row);
+        position: relative;
+
+        sup {
+          padding-left: 3px;
+          margin-bottom: 10px;
+          font-weight: bolder;
+          font-size: 15px;
+          color: $txt-blue;
+          // border: 1px solid red;
+        }
+      }
+    }
+  }
+
+  // NAVBAR
+  .navbar-main-con {
+    // border: 1px solid red;
+    background: $txt-blue;
+    position: absolute;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    // top: 94%;
+    width: 100vw;
+    height: 60px;
+    // padding-bottom: 10px;
+    @include flexDisplay(space-between, center, row);
+
+    // top: 10%;
+    @include responsive(phone) {
+      width: 100%;
+    }
+    @include responsive(bigphone) {
+      // border: 1px solid red;
+      padding-bottom: 0;
+      position: relative;
+      height: 30px;
+      margin-top: 50px;
+    }
+
+    nav {
+      // border: 1px solid red;
+      width: 100%;
+      @include flexDisplay(space-between, center, row);
+
+      ul {
+        // border: 1px solid red;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3px 0;
+        @include flexDisplay(space-between, center, row);
+
+        @include responsive(bigphone) {
+          height: 100%;
+          width: 500px;
+          padding: 0;
+          @include flexDisplay(space-between, center, row);
+        }
+        li {
+          @include flexDisplay(space-between, center, column);
+          padding: 0px 15px;
+          height: 100%;
+          font-size: 10px;
+          color: $bg-light;
+          cursor: pointer;
+          // border: 1px solid red;
+          @include responsive(phone) {
+            // padding: 5px 10px;
+          }
+
+          @include responsive(bigphone) {
+            font-size: 20px;
+          }
+
+          .nav-active {
+            // border: 2px solid red;
+            position: absolute;
+
+            border-radius: 50% 50% 0 0;
+            width: 20vw;
+            margin-top: -30px;
+            height: 20vw;
+            background: $txt-blue;
+            // z-index: 50;
+            @include responsive(bigphone) {
+              display: none;
+            }
+          }
+
+          p {
+            z-index: 30;
+          }
+          span {
+            @include flexDisplay(space-between, center, column);
+            font-size: 33px;
+            position: relative;
+            z-index: 100;
+
+            @include responsive(phone) {
+              font-size: 25px;
+            }
+            .menu-icon {
+              &:hover {
+                transform: scale(0.9);
+              }
+            }
+
+            @include responsive(bigphone) {
+              display: none;
+            }
+          }
+        }
+
+        @include responsive(bigphone) {
+          .listactive {
+            background: white;
+            color: $txt-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+// BANNER STYLE
+.banner-main-con {
+  // border: 2px solid red;
+
+  @include responsive(bigphone) {
+    margin-top: 80px;
+  }
+  .carousel-main-con {
+    // border: 2px solid rgb(0, 64, 255);
+    position: relative;
+    // height: 200px;
+
+    .carousel-con {
+      // border: 2px solid rgb(0, 255, 34);
+      height: 190px;
+      .carousel-items-con {
+        height: 200px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        // border: 2px solid red;
+
+        @include responsive(bigphone) {
+          height: 300px;
+        }
+        @include responsive(desktop) {
+          height: 500px;
+        }
+        .img {
+          object-fit: cover;
+        }
+      }
+      @include responsive(bigphone) {
+        height: 300px;
+      }
+      @include responsive(desktop) {
+        height: 500px;
+      }
+    }
+  }
+}
+.category-con {
+  // border: 2px solid red;
+  margin-top: 30px;
+
+  h1 {
+    text-align: center;
+    color: $txt-blue;
+    font-size: 30px;
+
+    @include responsive(tablet) {
+      font-size: 50px;
+    }
+  }
+}
+// NEW PRODUCTS
+.new-arrivals-main-con {
+  width: 100vw;
+  margin-top: 50px;
+  overflow-x: hidden;
+  // border: 2px solid red;
+  @include responsive(tablet) {
+    margin-top: 100px;
+  }
+  .new-arrivals-con {
+    @include flexDisplay(space-between, center, column);
+
+    h1 {
+      color: $txt-blue;
+      margin-left: 5px;
+      font-size: 30px;
+
+      @include responsive(tablet) {
+        font-size: 50px;
+      }
+    }
+    .new-products-con {
+      @include flexDisplay(flex-start, flex-start, row);
+      overflow: scroll;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px 0;
+
+      .new-products-case {
+        padding: 5px;
+        width: 250px;
+        margin: 0 10px;
+        background: white !important;
+        border-radius: 5px;
+        border: 1px solid #f5f3f3;
+        position: relative;
+        // box-shadow: -1px -1px 2px rgba(128, 128, 128, 0.368);
+        @include flexDisplay(space-between, center, column);
+        // border: 2px solid red;
+        .percentage-off {
+          // border: 2px solid rgb(0, 255, 21);
+          position: absolute;
+          z-index: 20;
+          height: 45px;
+          border-bottom-right-radius: 12px;
+          top: 0px;
+          left: 0px;
+          background: $txt-blue;
+          color: white;
+          text-align: center;
+          padding: 5px;
+          font-size: 12px;
+        }
+        .new-products {
+          height: 250px;
+          width: 200px;
+          overflow: hidden;
+          position: relative;
+          transition: transform 0.5s ease;
+          background: linear-gradient(15deg, #eee 40%, #fff 30.1%);
+          // border: 2px solid rgb(0, 255, 21);
+          background: #fff5f5;
+          @include flexDisplay(space-between, center, column);
+
+          .img {
+            // border: 2px solid red;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 0.3s linear;
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+          }
+        }
+        .pname {
+          text-align: center;
+          font-size: 15px;
+          line-height: 1.5;
+          color: $font-light;
+          margin: 5px 0;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          text-transform: lowercase;
+          // font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+// PRODUCT
+.product-session-con {
+  border: 2px solid red;
+  background: #fff5f5;
+  // margin-top: 70px;
+  // padding: 10px 0;
+  width: 100%;
+  padding-bottom: 10px;
+  overflow-x: hidden;
+
+  @include responsive(bigphone) {
+    // margin-top: 100px;
+    padding: 20px 0;
+  }
+
+  // homepage product category filter button container
+  .homepage-category-main-con {
+    border: 2px solid red;
+    background: $bg-light; /* Make sure $bg-light is defined */
+    width: 100%;
+    overflow-x: auto; /* Use 'auto' for horizontal scrolling */
+
+    .category-con {
+      border: 2px solid rgb(68, 0, 255);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap; /* Prevent wrapping to the next line */
+      margin-top: 10px;
+      width: max-content; /* This allows the content to grow horizontally */
+      padding: 10px 0;
+      white-space: nowrap; /* Prevent text from wrapping within buttons */
+      margin: 0 auto;
+      button {
+        width: 200px; /* Set a minimum width for the buttons */
+        height: 150px; /* Set the desired height */
+        padding: 5px;
+        margin: 0 10px;
+        border-radius: 5px;
+        position: relative;
+        /* Additional styling properties */
+        // background: white; /* Make sure it's the correct color you want */
+        // border: 1px solid #f5f3f3;
+      }
+    }
+  }
+
+  .product-main-con {
+    @include flexDisplay(space-between, center, column);
+    width: 100%;
+    max-width: 1330px;
+    margin: 0 auto;
+
+    h1 {
+      color: $txt-blue;
+      margin-left: 5px;
+      margin-top: 20px;
+      font-size: 30px;
+
+      @include responsive(tablet) {
+        font-size: 50px;
+      }
+    }
+    p {
+      cursor: pointer;
+      color: $txt-blue;
+      margin-top: 20px;
+    }
+
+    .products-con {
+      @include flexDisplay(space-evenly, flex-start, row);
+      flex-wrap: wrap;
+      margin-top: 30px;
+      width: 100%;
+      // border: 2px solid red;
+
+      @include responsive(bigphone) {
+        @include flexDisplay(center, center, row);
+        margin-top: 30px;
+      }
+
+      .products {
+        @include flexDisplay(space-evenly, center, column);
+        width: 45%;
+        padding: 5px 5px 0 5px;
+        margin: 10px 5px;
+        border-radius: 5px;
+        background: white;
+        overflow: hidden;
+        max-width: 180px;
+        // background: linear-gradient(15deg, #eee 40%, #fff 30.1%);
+        border: 1px solid rgba(128, 128, 128, 0.133);
+        // border: 2px solid red;
+        @include responsive(bigphone) {
+          width: 20%;
+          max-width: 200px;
+        }
+
+        .product-name {
+          // border: 2px solid red;
+          margin-top: 3px;
+          // text-align: center;
+          font-size: 15px;
+          // line-height: 2;
+          color: $font-light;
+          // margin-top: -1px;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          text-transform: lowercase;
+          // font-style: italic;
+          @include responsive(bigphone) {
+            font-size: 15px;
+          }
+          @include responsive(tablet) {
+            font-size: 18px;
+          }
+        }
+
+        .product-img {
+          // margin-top: 5px;
+          border: 1px solid rgba(128, 128, 128, 0.107);
+          width: 100%;
+          height: 150px;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          background: linear-gradient(15deg, #eee 40%, #fff 30.1%);
+          // @include flexDisplay(center, center, row);
+          overflow: hidden;
+          object-fit: contain;
+          position: relative;
+          // border: 2px solid red;
+
+          .percentage-off {
+            position: absolute;
+            z-index: 20;
+            height: 45px;
+            border-bottom-right-radius: 12px;
+            top: -20px;
+            left: 0px;
+            background: $txt-blue;
+            color: white;
+            text-align: center;
+            padding: 3px;
+            font-size: 12px;
+          }
+          @include responsive(phone) {
+            height: 200px;
+          }
+          @include responsive(tablet) {
+            height: 220px;
+          }
+
+          .home-product-img {
+            height: 100%;
+            // border: 2px solid rgb(25, 0, 255);
+            transition: transform 0.3s linear;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+            @include responsive(tablet) {
+              // height: 250px;
+              transform: scale(1);
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+            @include responsive(desktop) {
+              // height: 300px;
+              transform: scale(1);
+
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+
+        .price {
+          @include flexDisplay(space-between, center, row);
+          width: 100%;
+          // border: 2px solid red;
+          // height: 30px;
+          // margin-top: 5px;
+          font-size: 15px;
+
+          .product-price {
+            // border: 2px solid red;
+            text-align: center;
+            // line-height: 1.5;
+            margin-top: 5px;
+            color: $bg-dark-gray;
+          }
+
+          .product-oldprice {
+            text-align: center;
+            // line-height: 1.5;
+            margin-top: 5px;
+            font-size: 12px;
+            color: $font-light;
+            font-style: italic;
+            text-decoration: line-through;
+          }
+        }
+
+        .addto-cart {
+          // border: 1px solid red;
+          width: 100%;
+          margin: 0 auto;
+          text-align: center;
+          font-size: 15px;
+          line-height: 1.9;
+          border: 0.1px solid $txt-blue;
+          color: $txt-blue;
+          border-radius: 5px;
+          margin: 5px 0;
+          cursor: pointer;
+          background: white;
+          @include flexDisplay(center, center, row);
+
+          &:hover {
+            background: $txt-blue;
+            color: white;
+          }
+        }
+      }
+    }
+    padding-bottom: 10px;
+  }
+}
+
+// NEWS LETTER
+
+.newsletter {
+  // background: url(https://res.cloudinary.com/isreal/image/upload/v1662211845/jayflix%20vid%20posters/photo_2022-09-02_18-40-11_u8gi0i.jpg)
+  //   no-repeat;
+  background: $txt-blue;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  @include flexDisplay(center, center, row);
+  // margin-top: 20px;
+  padding: 10px 0;
+
+  form {
+    width: 90%;
+    text-align: center;
+    padding: 5px 0;
+    // border: 1px solid red;
+    @include flexDisplay(center, center, column);
+
+    @include responsive(bigphone) {
+      max-width: 500px;
+      height: 200px;
+    }
+
+    .btn {
+      // width: 150px;
+      // height: 40px;
+      cursor: pointer;
+      padding: 10px 20px;
+      background: $txt-blue;
+      color: white;
+      border: 1px solid $bg-gray;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-top: 10px;
+
+      &:hover {
+        background: $font-light;
+      }
+      @include responsive(bigphone) {
+        font-size: 25px;
+        width: 210px;
+      }
+    }
+
+    h3 {
+      font-size: 15px;
+      color: #fff;
+      padding-bottom: 0.7rem;
+      font-weight: normal;
+
+      @include responsive(bigphone) {
+        font-size: 20px;
+      }
+    }
+
+    .box {
+      width: 100%;
+      margin: 0.7rem 0;
+      padding: 12px 5px;
+      font-size: 17px;
+      color: var(--black);
+      border-radius: 5px;
+      text-transform: none;
+      border: none;
+
+      &:focus {
+        border: 1px solid $txt-blue;
+      }
+    }
+  }
+}
+
+// PROMO
+.deal {
+  // border: 2px solid red;
+  margin-top: 50px;
+  align-items: center;
+  position: relative;
+  padding: 5px;
+
+  @include responsive(bigphone) {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .content {
+    width: 75%;
+    // border: 2px solid red;
+    @include responsive(bigphone) {
+      // max-width: 500px;
+      width: 60%;
+    }
+    h3 {
+      color: $font-light;
+      font-size: 20px;
+      padding-bottom: 0.5rem;
+
+      @include responsive(bigphone) {
+        font-size: 25px;
+      }
+    }
+
+    h1 {
+      color: $txt-blue;
+      font-size: 45px;
+      margin-bottom: 20px;
+
+      @include responsive(bigphone) {
+        font-size: 90px;
+      }
+    }
+
+    a {
+      padding: 10px 20px;
+      background: $txt-blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-top: 10px;
+
+      @include responsive(bigphone) {
+        padding: 15px 50px;
+        font-size: 25px;
+        width: 210px;
+        margin-top: 20px;
+      }
+      @include responsive(bigphone) {
+        font-size: 25px;
+        width: 210px;
+      }
+      &:hover {
+        background: $font-light;
+      }
+    }
+  }
+
+  .fade-con {
+    // border: 2px solid rgb(0, 255, 34);
+    width: 100vw;
+    height: 200px;
+    float: right;
+    width: 150px;
+    position: relative;
+    margin-top: -170px;
+
+    overflow: hidden;
+    background: linear-gradient(15deg, #eee 30%, #fff 30.1%);
+
+    // box-shadow: -10px -10px 10px rgba(128, 128, 128, 0.368);
+
+    @include responsive(bigphone) {
+      width: 35%;
+      height: 400px;
+      // border: 2px solid red;
+      margin-top: 10px;
+      background: linear-gradient(15deg, #eee 30%, #fff 30.1%);
+    }
+    .image {
+      position: relative;
+      // border: 2px solid red;
+
+      img {
+        height: 200px;
+        border-radius: 5px;
+        position: absolute;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+        // display: none;
+        @include responsive(bigphone) {
+          height: 400px;
+          border-radius: 10px;
+          // border: 2px solid red;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .deal {
+    padding: 0 1px 0 2px;
+  }
+  .fade-con {
+    margin-top: -70px !important;
+  }
+  .deal .content h3 {
+    font-size: 15px;
+  }
+  .deal .content h1 {
+    font-size: 29px;
+  }
+  .deal .content a {
+    padding: 10px 20px;
+  }
+}
+
+// ADVANTAGE
+
+.advantage-main-con {
+  // border: 2px solid red;
+  width: 100%;
+  margin: 100px 0 0 0;
+  margin-bottom: 50px;
+
+  .advantage-con {
+    // border: 2px solid red;
+    @include flexDisplay(space-around, center, row);
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    .advantage-img-con {
+      // border: 2px solid red;
+      width: 70px;
+      height: 50px;
+
+      @include responsive(bigphone) {
+        width: 100px;
+        height: 70px;
+      }
+      .img {
+        width: 100%;
+        height: 100%;
+      }
+
+      p {
+        // border: 2px solid red;
+        text-align: center;
+        font-size: 10px;
+
+        @include responsive(bigphone) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+// REVIEW
+.review-main-con {
+  // border: 2px solid red;
+
+  background: #fff5f5;
+  padding: 0 5px;
+  margin: 0 auto;
+  // margin: 130px 0 0 0;
+  width: 100vw;
+
+  @include responsive(bigphone) {
+    height: 350px;
+  }
+
+  h1 {
+    text-align: center;
+    color: $txt-blue;
+    // margin-left: 5px;
+    padding: 20px;
+    font-size: 30px;
+
+    @include responsive(tablet) {
+      font-size: 50px;
+    }
+  }
+  .review {
+    @include flexDisplay(center, flex-start, column);
+    height: 100%;
+    // border: 2px solid red;
+    .review-con {
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid rgba(128, 128, 128, 0.132);
+      box-shadow: 5px 10px 15px rgba(128, 128, 128, 0.162);
+    }
+    h3 {
+      color: $txt-blue;
+      // border: 2px solid red;
+    }
+
+    .review-text {
+      // border: 2px solid red;
+      // @include flexDisplay(center, center, column);
+      color: $txt-blue;
+      margin-top: 10px;
+      p {
+        color: $font-light;
+        font-size: 15px;
+        line-height: 1.5;
+        font-style: italic;
+
+        @include responsive(tablet) {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+// FOOTER
+.footer {
+  // background: #000000b3;
+
+  background: $txt-blue;
+  // margin: 150px 0 0 0;
+  border-top-left-radius: 40px;
+
+  .box-container {
+    // border: 2px solid red;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 10px;
+    @include flexDisplay(space-between, flex-start, row);
+    flex-wrap: wrap;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    // gap: 1.5rem;
+
+    .box {
+      // border: 2px solid red;
+      margin-top: 20px;
+      width: 100%;
+
+      @include responsive(bigphone) {
+        width: 20%;
+        min-width: 300px;
+      }
+      @include responsive(tablet) {
+        width: 10%;
+        min-width: 250px;
+      }
+
+      h3 {
+        font-size: 20px;
+        color: #fff;
+        // padding: 1rem 0;
+      }
+      a {
+        display: block;
+        font-size: 15px;
+        color: $bg-gray;
+        line-height: 2;
+
+        &:hover {
+          padding-right: 2rem;
+        }
+      }
+      .map {
+        width: 100%;
+      }
+    }
+  }
+  .share {
+    padding: 1rem 0;
+    text-align: center;
+
+    a {
+      line-height: 5rem;
+      font-size: 30px;
+      color: #fff;
+      margin: 10px;
+      border-radius: 50%;
+    }
+  }
+
+  .credit {
+    border-top: 0.1px solid $bg-gray;
+    // margin-top: 20px;
+    padding-bottom: 25px;
+    font-size: 15px;
+    text-align: center;
+    // display: none;
+    span {
+      color: #fff;
+    }
+
+    @include responsive(bigphone) {
+      // margin-top: 20px;
+      display: block;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+// LOADER STYLE
+.loader-con {
+  // border: 1px solid red;
+  @include flexDisplay(center, center, row);
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  // border: 1px solid red;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: $txt-blue;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+// PAGE ADVERYS
+.ad-con {
+  position: relative;
+  width: 100%;
+
+  .ad-img {
+    @include flexDisplay(center, center, row);
+    img {
+      // width: 100%;
+      margin: 0 auto;
+      cursor: pointer;
+
+      height: 100px;
+      width: 100vw;
+
+      @include responsive(bigphone) {
+        height: 150px;
+        width: 100%;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      color: $txt-blue;
+      font-size: 15px;
+    }
+  }
+}
+
+// MODAL TO LOGIN IN
+.modal-main-con {
+  position: absolute;
+  position: fixed;
+  z-index: 200;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  right: 0;
+  // border: 5px solid rgb(255, 0, 55);
+  backdrop-filter: blur(10px);
+
+  .modal-relative {
+    @include flexDisplay(center, center, row);
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    // overflow-y: scroll;
+    margin-top: -5px !important;
+
+    .modal-card {
+      @include flexDisplay(center, center, column);
+      box-shadow: -5px -10px 15px rgba(128, 128, 128, 0.625);
+      border-radius: 5px;
+      width: 90% !important;
+      position: relative;
+      // border: 2px solid green;
+      background: white;
+      z-index: 20000;
+
+      .go-back {
+        position: absolute;
+        z-index: 20;
+        cursor: pointer;
+        top: 5px;
+        left: 5px;
+        background: #ff69b4;
+        border: 1px solid #8080802b;
+        color: white;
+        width: 70px;
+        height: 30px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 18px;
+
+        &:hover {
+          background: gray;
+        }
+      }
+
+      .modal-img-con {
+        @include flexDisplay(center, center, row);
+        width: 100%;
+
+        img {
+          width: 70% !important;
+        }
+      }
+      .modal-text {
+        @include flexDisplay(center, center, column);
+
+        p {
+          color: $font-light;
+          text-align: center;
+        }
+
+        .modal-link {
+          // border: 2px solid red;
+          margin: 20px;
+          width: 50%;
+          text-align: center;
+          background: $txt-blue;
+          color: white;
+          padding: 10px;
+          animation: signin 2s ease-in-out infinite;
+
+          &:hover {
+            background: #1b4670;
+          }
+          @keyframes signin {
+            0% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(0.95);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

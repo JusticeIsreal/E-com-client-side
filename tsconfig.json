@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "downlevelIteration": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "Components/Homepage/Banner.jsx",
+    "Components/Topbar.jsx",
+    "Components/AdminPageComponents/Sidebar.tsx",
+    "pages/ClientDynamic/[productID].jsx",
+    "pages/Homepage.jsx",
+    "pages/index.jsx",
+    "pages/_app.jsx",
+    "pages/api/auth/AuthGuard..jsx"
+, "Components/Homepage/Products.jsx", "pages/api/getUserDetails.js", "Components/Homepage/NewArrivals.jsx", "Components/Homepage/NewsLetter.jsx", "Components/Homepage/Promo.jsx", "Components/Homepage/Review.jsx", "Components/ProductPage/Products.jsx"  ],
+  "exclude": ["node_modules"]
+}

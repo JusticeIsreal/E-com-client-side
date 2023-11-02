@@ -1,0 +1,995 @@
+// @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@300&family=Source+Code+Pro:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+// global variables
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Orbitron", sans-serif;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(245, 245, 245, 0);
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  display: none;
+  background-color: rgba(65, 105, 225, 0);
+}
+
+$font-family: "Poppins", sans-serif;
+$bg-light: #f9f9f9;
+$font-light: #666;
+$bg-gray: #eee;
+$bg-dark-gray: #444;
+$bg-dark: #342e37;
+$txt-blue: #ff69b4;
+$txt-light-blue: #cfe8ff;
+
+@mixin flexDisplay($justifyProp, $alignProp, $flexDirection) {
+  display: flex;
+  justify-content: $justifyProp;
+  align-items: $alignProp;
+  flex-direction: $flexDirection;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (min-width: 320px) {
+      @content;
+    }
+  }
+  @if $breakpoint==bigphone {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet {
+    @media only screen and (min-width: 900px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==desktop {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// CLIENT SINGLE PRODUCT DYNAMIC PAGE STYLE
+.client-single-product {
+  // border: 2px solid red;
+  width: 100vw;
+  margin-top: 45px;
+
+  .single-product {
+    // border: 2px solid red;
+    width: 100%;
+    @include flexDisplay(space-between, center, column);
+
+    @include responsive(bigphone) {
+      margin-top: 100px;
+    }
+    @include responsive(tablet) {
+      margin-top: 100px;
+      @include flexDisplay(flex-start, flex-start, row);
+    }
+
+    .top-container {
+      width: 100%;
+
+      @include responsive(bigphone) {
+        // border: 2px solid rgb(0, 26, 255);
+        padding: 5px 0 0 10px;
+
+        @include flexDisplay(center, center, row);
+      }
+
+      @include responsive(tablet) {
+        // border: 2px solid rgb(0, 255, 64);
+        @include flexDisplay(flex-start, center, row);
+        width: 50%;
+        max-width: 480px;
+        margin-top: 20px;
+      }
+      @include responsive(desktop) {
+        margin-top: 10px;
+        max-width: 400px;
+        @include flexDisplay(flex-start, flex-start, column);
+      }
+      .big-display-con {
+        width: 100vw;
+        max-width: 400px;
+        margin: 0 auto;
+        height: 500px;
+        padding: 10px;
+        @include responsive(phone) {
+          position: relative;
+        }
+        @include responsive(bigphone) {
+          // border: 2px solid red;
+          width: 600px;
+          max-width: 600px;
+          height: 700px;
+          order: 2;
+        }
+
+        @include responsive(tablet) {
+          // margin-top: 10px;
+          width: 350px;
+          height: 400px;
+        }
+        @include responsive(desktop) {
+          margin-top: 0;
+          width: 400px;
+          height: 500px;
+        }
+        .go-back {
+          position: absolute;
+          z-index: 20;
+          cursor: pointer;
+          position: fixed;
+          top: 60px;
+          left: 15px;
+          background: #ff69b4;
+          border: 1px solid #8080802b;
+          color: white;
+          width: 70px;
+          height: 30px;
+          text-align: center;
+          border-radius: 10px;
+          font-size: 18px;
+
+          &:hover {
+            background: gray;
+          }
+
+          @include responsive(bigphone) {
+            top: 110px;
+          }
+        }
+
+        .percentage-off {
+          position: absolute;
+          z-index: 20;
+          height: 45px;
+          border-bottom-left-radius: 12px;
+          top: 10px;
+          right: 10px;
+          background: $txt-blue;
+          color: white;
+          text-align: center;
+          padding: 3px;
+          font-size: 12px;
+
+          @include responsive(bigphone) {
+            top: 10px;
+            right: 25px;
+          }
+          @include responsive(tablet) {
+            right: 20px;
+          }
+        }
+        .big-display-img {
+          position: relative;
+          width: 100%;
+          height: 100%;
+
+          @include responsive(bigphone) {
+            // border: 2px solid red;
+            width: 95%;
+            margin: 0 auto;
+          }
+
+          .img {
+            // border: 2px solid red;
+            // width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .small-display-img-con {
+        @include flexDisplay(center, center, row);
+        margin: 10px 0;
+        width: 100%;
+        height: 100px;
+        position: relative;
+        // border: 2px solid red;
+
+        @include responsive(bigphone) {
+          @include flexDisplay(center, center, column);
+          width: 150px;
+          height: 600px;
+          // border: 2px solid red;
+        }
+        @include responsive(tablet) {
+          width: 100px;
+          height: 400px;
+        }
+        @include responsive(desktop) {
+          order: 2;
+          width: 100%;
+          max-width: 400px;
+          height: 100px;
+          @include flexDisplay(flex-start, center, row);
+        }
+
+        .small-display-img {
+          border: 0.1px solid gray;
+          border-radius: 2px;
+          position: relative;
+          margin: 5px;
+          width: 22%;
+          height: 70px;
+          cursor: pointer;
+
+          @include responsive(phone) {
+            width: 22%;
+            height: 100%;
+          }
+          @include responsive(bigphone) {
+            @include flexDisplay(center, center, column);
+            width: 100%;
+            height: 23%;
+          }
+          @include responsive(desktop) {
+            // @include flexDisplay(center, center, column);
+            width: 100px;
+            height: 100px;
+          }
+
+          &:hover {
+            transform: scale(1.1);
+            border: 0.1px solid $txt-blue;
+          }
+
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    // lower part
+    .lower-details {
+      // border: 1px solid red;
+      width: 100%;
+      padding: 5px;
+      @include responsive(tablet) {
+        width: 50%;
+        margin-top: 20px;
+        max-width: 600px;
+        margin-left: 20px;
+      }
+
+      .p-name {
+        text-transform: capitalize;
+      }
+      .p-number,
+      .p-desc {
+        width: 100%;
+        font-size: 15px;
+        line-height: 1.3;
+        color: $font-light;
+        // font-style: italic;
+        margin-top: 10px;
+        // border: 1px solid red;
+
+        @include responsive(bigphone) {
+          font-size: 18px;
+          max-width: 500px;
+        }
+
+        span {
+          font-size: 16px;
+          color: $bg-dark;
+
+          @include responsive(bigphone) {
+            font-size: 20px;
+          }
+        }
+      }
+      .p-number {
+        font-style: normal;
+        margin-top: 10px;
+        // border: 1px solid red;
+      }
+      .product-qty-price-con {
+        @include flexDisplay(space-between, center, row);
+        width: 100%;
+        margin-top: 20px;
+        flex-wrap: wrap;
+
+        // border: 2px solid red;
+
+        .qty-con {
+          border: 1px solid #8080802b;
+          border-radius: 20px;
+          @include flexDisplay(space-around, center, row);
+          padding: 5px;
+          height: 47px;
+          width: 50%;
+
+          margin-right: 20px;
+          font-size: 25px;
+          background: #8080802b;
+          overflow-y: scroll;
+
+          @include responsive(bigphone) {
+            height: 67px;
+            width: 300px;
+          }
+
+          @include responsive(tablet) {
+            width: 200px;
+            height: 60px;
+          }
+          span {
+            font-weight: bolder;
+            // border: 2px solid red;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 80px;
+            height: 100%;
+            color: $font-light;
+            @include flexDisplay(center, center, row);
+
+            @include responsive(bigphone) {
+              font-size: 50px;
+            }
+            @include responsive(tablet) {
+              font-size: 40px;
+            }
+            &:hover {
+              background: gray;
+              color: white;
+            }
+          }
+          h3 {
+            font-size: 30px;
+            color: $bg-dark;
+          }
+        }
+        h1 {
+          margin-right: auto;
+          color: $bg-dark;
+
+          @include responsive(bigphone) {
+            font-size: 40px;
+          }
+        }
+      }
+      .add-to-cart-con {
+        // border: 2px solid red;
+        @include flexDisplay(space-between, center, row);
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 30px;
+        @include responsive(bigphone) {
+          max-width: 550px;
+          margin-left: 0;
+        }
+
+        .add,
+        .buy,
+        .view {
+          // border: 2px solid rgb(13, 0, 255);
+          width: 100%;
+          text-align: center;
+          margin: 2px;
+          padding: 10px 5px;
+          font-size: 18px;
+          font-weight: bolder;
+          background: $txt-blue;
+          color: white;
+          cursor: pointer;
+
+          &:hover {
+            background: #215586;
+          }
+
+          @include responsive(bigphone) {
+            font-size: 20px;
+            padding: 15px 5px;
+          }
+        }
+
+        .add {
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
+        .view {
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+      }
+    }
+  }
+
+  //   single product details style
+  .single-product-details {
+    // border: 2px solid red;
+    margin-top: 30px;
+    padding: 5px;
+    width: 100vw;
+    overflow: hidden;
+    color: $bg-dark;
+    @include flexDisplay(space-between, flex-start, column);
+
+    // SINGLE PRODUCT REVIEW
+    .product-review {
+      width: 100%;
+      margin-top: 100px;
+
+      @include responsive(bigphone) {
+        margin-top: 150px;
+      }
+      @include responsive(tablet) {
+        margin-top: 50px;
+      }
+
+      h1 {
+        color: $txt-blue;
+      }
+
+      .review-con {
+        position: relative;
+        border-top: 1px solid #80808000;
+        // overflow-y: scroll;
+        .add-review {
+          position: absolute;
+          padding: 3px 5px;
+          right: 0;
+          top: -30px;
+          font-size: 15px;
+          text-align: center;
+          color: $txt-blue;
+          z-index: 4;
+          align-content: center;
+          cursor: pointer;
+          // border: 2px solid red;
+
+          span {
+            font-size: 15px;
+            text-align: center;
+            color: $txt-blue;
+            padding: 0px 5px 0px 5px;
+
+            @include responsive(bigphone) {
+              font-size: 20px;
+            }
+          }
+        }
+
+        .reviews {
+          border: 1px solid #8080802b;
+          width: 100%;
+          margin: 0 auto;
+          border-radius: 10px;
+          margin-top: 10px;
+
+          .review-count {
+            font-size: 11px;
+            font-style: italic;
+            color: $font-light;
+            padding: 3px;
+            // border: 2px solid red;
+          }
+          .quote {
+            .chatit {
+              background: #80808013;
+              margin: 5px;
+              width: auto;
+              border-radius: 10px;
+            }
+
+            p {
+              text-transform: capitalize;
+              // border: 2px solid red;
+              font-size: 15px;
+              font-weight: bold;
+              padding: 0;
+
+              @include responsive(bigphone) {
+                font-size: 20px;
+              }
+            }
+            sup {
+              font-size: 12px;
+              font-weight: normal;
+              font-style: italic;
+              color: $font-light;
+              // border: 2px solid red;
+            }
+            .quote-text {
+              text-transform: none;
+              font-size: 15px;
+              font-weight: normal;
+              font-style: italic;
+              color: $font-light;
+
+              @include responsive(bigphone) {
+                font-size: 20px;
+              }
+            }
+
+            .time-posted {
+              font-size: 12px;
+              font-style: italic;
+
+              @include responsive(bigphone) {
+                font-size: 15px;
+              }
+            }
+          }
+
+          .see-more {
+            // border: 2px solid red;
+            height: 30px;
+            @include flexDisplay(space-between, center, row);
+
+            p {
+              cursor: pointer;
+              // border: 2px solid red;
+              margin: 0 auto;
+              color: $txt-blue;
+            }
+          }
+        }
+
+        .review-form-con {
+          // border: 2px solid red;
+          padding: 10px 0;
+          overflow: hidden;
+          animation: reviewform 0.3s linear;
+
+          @keyframes reviewform {
+            0% {
+              padding: 0;
+              height: 0;
+            }
+            100% {
+              padding: 10px 0;
+              height: 300px;
+            }
+          }
+          form {
+            width: 95%;
+            margin: 0 auto;
+            // border: 2px solid red;
+            @include flexDisplay(space-between, flex-start, column);
+
+            label {
+              font-size: 15px;
+              text-align: center;
+              color: $txt-blue;
+              // margin-top: 10px;
+
+              @include responsive(tablet) {
+                font-size: 20px;
+              }
+            }
+            input {
+              padding: 2px 8px;
+              margin-bottom: 20px;
+              width: 100%;
+              height: 40px;
+              outline: none;
+              color: gray;
+              border: 1px solid gray;
+              font-size: 15px;
+
+              @include responsive(tablet) {
+                font-size: 20px;
+              }
+            }
+            textarea {
+              margin-bottom: 20px;
+              padding: 2px 8px;
+              width: 100%;
+              height: 70px;
+              outline: none;
+              color: $txt-blue;
+              border: 1px solid gray;
+              font-size: 15px;
+
+              @include responsive(tablet) {
+                font-size: 20px;
+              }
+            }
+
+            .submit-btn {
+              background: $txt-blue;
+              color: white;
+              cursor: pointer;
+              border: none;
+
+              &:hover {
+                background: gray;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // similar brands
+    .similar-products {
+      // border: 2px solid red;
+      @include flexDisplay(flex-start, flex-start, row);
+      overflow: scroll;
+      // margin-top: 10px;
+      width: 100%;
+      padding: 10px 0;
+
+      .single-product-con {
+        display: flex;
+
+        // border: 2px solid red;
+      }
+      .products {
+        @include flexDisplay(space-evenly, center, column);
+        width: 170px;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background: white;
+        overflow: hidden;
+
+        // background: linear-gradient(15deg, #eee 40%, #fff 30.1%);
+        border: 1px solid rgba(128, 128, 128, 0.261);
+        // border: 2px solid red;
+        // flex-wrap: wrap;
+        // height: 350px;
+
+        @include responsive(bigphone) {
+          width: 200px;
+        }
+
+        @include responsive(desktop) {
+          width: 350px;
+        }
+
+        .product-name {
+          // border: 2px solid red;
+          text-transform: capitalize;
+          // text-align: center;
+          font-size: 15px;
+          // line-height: 2;
+          color: $font-light;
+          margin-top: 5px;
+          width: 100%;
+          // font-style: italic;
+          @include responsive(bigphone) {
+            font-size: 15px;
+          }
+          @include responsive(tablet) {
+            font-size: 18px;
+          }
+        }
+
+        .product-img {
+          // margin-top: 5px;
+          border: 1px solid rgba(128, 128, 128, 0.157);
+          width: 100%;
+          // height: 250px;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          background: linear-gradient(15deg, #eee 40%, #fff 30.1%);
+          // @include flexDisplay(center, center, row);
+          // overflow: hidden;
+          position: relative;
+          // border: 2px solid red;
+          .percentage-off {
+            position: absolute;
+            z-index: 20;
+            height: 45px;
+            border-bottom-right-radius: 15px;
+            top: 0px;
+            left: 0px;
+            background: $txt-blue;
+            color: white;
+            text-align: center;
+            padding: 3px;
+          }
+          @include responsive(phone) {
+            height: 200px;
+          }
+          @include responsive(bigphone) {
+            height: 230px;
+          }
+          @include responsive(tablet) {
+            height: 270px;
+          }
+          @include responsive(desktop) {
+            height: 400px;
+          }
+
+          .home-product-img {
+            height: 100%;
+            // border: 2px solid red;
+            transition: transform 0.3s linear;
+          }
+        }
+
+        .price {
+          @include flexDisplay(space-between, center, row);
+          width: 100%;
+          // border: 2px solid red;
+          // height: 30px;
+          margin-top: 5px;
+          font-size: 15px;
+
+          .product-price {
+            // border: 2px solid red;
+            text-align: center;
+            // line-height: 1.5;
+            margin-top: 5px;
+            color: $bg-dark-gray;
+          }
+
+          .product-oldprice {
+            text-align: center;
+            line-height: 1.5;
+            margin-top: 5px;
+            font-size: 12px;
+            color: $font-light;
+            font-style: italic;
+            text-decoration: line-through;
+          }
+        }
+
+        .addto-cart {
+          // border: 1px solid red;
+          width: 100%;
+          margin: 0 auto;
+          text-align: center;
+          font-size: 15px;
+          line-height: 1.9;
+          border: 1px solid $txt-blue;
+          color: $txt-blue;
+          border-radius: 5px;
+          margin: 5px 0;
+          margin-top: 10px;
+          cursor: pointer;
+
+          &:hover {
+            background: $txt-blue;
+            color: white;
+          }
+        }
+
+        &:hover {
+          border: 2px solid $txt-blue;
+          // box-shadow: -1px -1px 2px rgba(128, 128, 128, 0.368);
+        }
+      }
+    }
+  }
+}
+
+.modal-main-con {
+  // border: 2px solid red;
+  position: absolute;
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  backdrop-filter: blur(10px);
+
+  .modal-relative {
+    @include flexDisplay(center, center, row);
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    height: 100%;
+    // border: 2px solid red;
+
+    .modal-card {
+      // overflow: hidden;
+      @include flexDisplay(center, center, column);
+      box-shadow: -5px -10px 15px rgba(128, 128, 128, 0.625);
+      background: #fff5f5;
+      border-radius: 5px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+
+      .go-back {
+        position: absolute;
+        z-index: 20;
+        cursor: pointer;
+        top: 5px;
+        left: 5px;
+        background: #ff69b4;
+        border: 1px solid #8080802b;
+        color: white;
+        width: 70px;
+        height: 30px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 18px;
+
+        &:hover {
+          background: gray;
+        }
+      }
+
+      .modal-img-con {
+        @include flexDisplay(center, center, row);
+        width: 100%;
+        // border: 2px solid red;
+        img {
+          width: 80%;
+        }
+      }
+
+      form {
+        // border: 2px solid red;
+        width: 100%;
+        padding: 10px;
+        @include flexDisplay(center, center, column);
+        label {
+          margin: 20px 0;
+          color: $txt-blue;
+        }
+        img {
+          width: 50%;
+        }
+        div {
+          @include flexDisplay(center, center, column);
+          width: 100%;
+
+          input {
+            font-size: 15px;
+            padding: 8px 5px;
+            height: 40px;
+            width: 90%;
+            margin: 5px;
+            border: 1px solid gray;
+          }
+          span {
+            font-size: 15px;
+            width: 90%;
+            margin: 0 5px;
+          }
+          select {
+            font-size: 15px;
+            padding: 8px 5px;
+            width: 90%;
+            margin: 5px;
+            height: 40px;
+            border-radius: 1px;
+            color: gray;
+            border: 1px solid gray;
+          }
+
+          textarea {
+            font-size: 15px;
+            padding: 8px 5px;
+            width: 90%;
+            margin: 5px;
+            height: 80px;
+            border: 1px solid $txt-blue;
+          }
+        }
+
+        .submit-btn {
+          font-size: 15px;
+          padding: 8px 5px;
+          width: 90%;
+          height: 40px;
+          margin: 5px;
+          cursor: pointer;
+
+          // margin-right: auto;
+          background: $txt-blue;
+          color: white;
+          border: none;
+
+          &:hover {
+            background: gray;
+          }
+        }
+      }
+
+      .confirm-form-info {
+        // border: 2px solid red;
+        position: absolute;
+        background: whitesmoke;
+        overflow: scroll;
+        height: auto;
+        max-height: 500px;
+        z-index: 21;
+        // top: -100%;
+        min-height: 100%;
+        width: 100%;
+        line-height: 1.5;
+        padding: 5px;
+        // transform: translateY(100%);
+        animation: showConfirmDetails 0.2s ease-in-out;
+
+        @keyframes showConfirmDetails {
+          0% {
+            transform: translateY(100%);
+          }
+
+          100% {
+            transform: translateY(0%);
+          }
+        }
+        h3 {
+          padding: 5px;
+          color: $bg-dark;
+
+          text-align: center;
+          background: whitesmoke;
+        }
+        .total {
+          border-bottom: 1px dashed gray;
+        }
+        p {
+          color: gray;
+          padding: 5px;
+          background: whitesmoke;
+          font-weight: 500;
+          font-weight: bold;
+
+          span {
+            color: $txt-blue;
+            font-size: 15px;
+            font-weight: normal;
+            font-style: italic;
+
+            i {
+              font-size: 12px;
+            }
+          }
+        }
+        .checkout-btn {
+          width: 97%;
+          margin: 0 auto;
+          height: 40px;
+          margin-top: 30px;
+          cursor: pointer;
+
+          button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: $txt-blue;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            animation: signin 2s ease-in-out infinite;
+
+            &:hover {
+              background: gray;
+            }
+            @keyframes signin {
+              0% {
+                transform: scale(1);
+              }
+              50% {
+                transform: scale(0.98);
+              }
+              100% {
+                transform: scale(1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
