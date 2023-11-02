@@ -53,11 +53,12 @@ function Products({ products, addToCar }) {
             <button
               key={index}
               className={`${
-                btn === category ? "category active-category" : "category"
+                btn === category ? "category-d active-category-d" : "category-d"
               }`}
               onClick={() => setCategory(btn)}
             >
               <img
+                className="category-image"
                 style={{ width: "40px" }}
                 src={
                   btn === "Beauty"
@@ -66,27 +67,30 @@ function Products({ products, addToCar }) {
                     ? "/fashion Background Removed.png"
                     : btn === "Assocceries"
                     ? "/assesories Background Removed.png"
-                    : btn === "18+" ? "/gadgets Background Removed.png":"/store Background Removed.png" // Set a default or empty string if none of the conditions match
+                    : btn === "18+"
+                    ? "/gadgets Background Removed.png"
+                    : "/store Background Removed.png" // Set a default or empty string if none of the conditions match
                 }
                 alt=""
               />
-              {btn}
+
+              <span> {btn}</span>
             </button>
           ))}
         </div>
 
-        {/* <form>
+        <form>
           <BsSearch />
           <input
             type="text"
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search ..."
+            placeholder="Search by name . . ."
           />
-        </form> */}
+        </form>
       </div>
       {/* end of category filter container */}
       <div className="product-main-con">
-        <h1>PRODUCTS</h1>
+        <h3>Products</h3>
 
         {/* PRODUCTS ARRAY */}
 

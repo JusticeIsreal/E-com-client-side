@@ -25,7 +25,7 @@
 $font-family: "Poppins", sans-serif;
 $bg-light: #f9f9f9;
 $font-light: #666;
-$bg-gray: #eee;
+$bg-gray: #eeeeee92;
 $bg-dark-gray: #444;
 $bg-dark: #342e37;
 $txt-blue: #ff69b4;
@@ -403,28 +403,22 @@ $txt-light-blue: #cfe8ff;
 
 // PRODUCT
 .product-session-con {
-  border: 2px solid red;
-  background: #fff5f5;
-  // margin-top: 70px;
-  // padding: 10px 0;
   width: 100%;
+  padding: 5px;
   padding-bottom: 10px;
   overflow-x: hidden;
+  // border: 2px solid red;
 
   @include responsive(bigphone) {
-    // margin-top: 100px;
     padding: 20px 0;
   }
 
   // homepage product category filter button container
   .homepage-category-main-con {
-    border: 2px solid red;
-    background: $bg-light; /* Make sure $bg-light is defined */
     width: 100%;
-    overflow-x: auto; /* Use 'auto' for horizontal scrolling */
+    overflow-x: auto;
 
     .category-con {
-      border: 2px solid rgb(68, 0, 255);
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap; /* Prevent wrapping to the next line */
@@ -433,16 +427,99 @@ $txt-light-blue: #cfe8ff;
       padding: 10px 0;
       white-space: nowrap; /* Prevent text from wrapping within buttons */
       margin: 0 auto;
+
       button {
-        width: 200px; /* Set a minimum width for the buttons */
-        height: 150px; /* Set the desired height */
+        width: 130px; /* Set a minimum width for the buttons */
+        height: 80px; /* Set the desired height */
         padding: 5px;
         margin: 0 10px;
         border-radius: 5px;
         position: relative;
-        /* Additional styling properties */
-        // background: white; /* Make sure it's the correct color you want */
-        // border: 1px solid #f5f3f3;
+        @include flexDisplay(space-evenly, center, column);
+
+        .category-image {
+          width: 60px !important;
+          height: 50px;
+        }
+        @include responsive(bigphone) {
+          width: 200px; /* Set a minimum width for the buttons */
+          height: 150px; /* Set the desired height */
+          .category-image {
+            width: 80px !important;
+            height: 70px;
+          }
+        }
+      }
+      .category-d {
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        box-shadow: -1px -1px 4px rgb(208, 208, 208);
+        padding: 5px;
+        color: gray;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
+        background: transparent;
+
+        @include responsive(phone) {
+          padding: 5px 10px;
+          font-size: 15px;
+          margin: 5px;
+        }
+        @include responsive(bigphone) {
+          padding: 10px;
+          font-size: 20px;
+          transform: scale(0.8);
+        }
+
+        &:hover {
+          border: none;
+          background: $bg-gray;
+          border: 0.1px solid #0000006d;
+        }
+      }
+      .active-category-d {
+        background: $bg-gray;
+        border: 0.1px solid #0000006d;
+      }
+    }
+
+    form {
+      border: 0.1px solid #0000006d;
+      border-radius: 5px;
+      width: 90%;
+      max-width: 250px;
+      height: 40px;
+      position: sticky;
+      top: 100px;
+      background-color: white; /* Add a background color to make it stand out */
+      z-index: 100; /* Ensure it's on top of other content when sticky */
+      position: absolute;
+      position: fixed;
+      top: 25px;
+      z-index: 300;
+      padding: 0 5px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include flexDisplay(space-between, center, row);
+      color: gray;
+
+      @include responsive(bigphone) {
+        left: 250px !important;
+        max-width: 350px;
+        transform: translate(-50%, -50%);
+      }
+      input {
+        height: 100%;
+        width: 100%;
+        border: none;
+        padding: 0 8px;
+        background: transparent;
+        color: $font-light;
+        outline: none;
+        font-size: 15px;
+        letter-spacing: 1px;
       }
     }
   }
@@ -450,17 +527,19 @@ $txt-light-blue: #cfe8ff;
   .product-main-con {
     @include flexDisplay(space-between, center, column);
     width: 100%;
-    max-width: 1330px;
+    // max-width: 1330px;
     margin: 0 auto;
+    // border: 2px solid red;
 
-    h1 {
-      color: $txt-blue;
-      margin-left: 5px;
+    h3 {
+      color: $font-light;
+      margin-right: auto;
       margin-top: 20px;
-      font-size: 30px;
-
+      font-size: 20px;
+      // font-weight: 500;
       @include responsive(tablet) {
-        font-size: 50px;
+        font-size: 30px;
+        margin-left: 5px;
       }
     }
     p {
@@ -472,13 +551,13 @@ $txt-light-blue: #cfe8ff;
     .products-con {
       @include flexDisplay(space-evenly, flex-start, row);
       flex-wrap: wrap;
-      margin-top: 30px;
+      // margin-top: 30px;
       width: 100%;
-      // border: 2px solid red;
+      border: 2px solid green;
 
       @include responsive(bigphone) {
-        @include flexDisplay(center, center, row);
-        margin-top: 30px;
+        @include flexDisplay(space-around, center, row);
+        // margin-top: 30px;
       }
 
       .products {

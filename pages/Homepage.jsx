@@ -157,7 +157,7 @@ const Homepage = () => {
           <Group position="center"></Group>
           <Banner />
           <div className="category-con">{/* <h1>CATEGORIES</h1> */}</div>
-          <Advert />
+          {/* <Advert /> */}
           {/* NEW ARRIVALS */}
           {/* <NewArrivals products={products} /> */}
           {/* <Advert /> */}
