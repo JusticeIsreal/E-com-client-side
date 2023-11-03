@@ -55,7 +55,7 @@ function Advert() {
                   alt="add"
                   // style={{ height: "190px" }}
                 />
-                <h3>HAIR / WIGS</h3>
+                {/* <h3>HAIR / WIGS</h3> */}
               </a>
             ) : (
               <a
@@ -76,7 +76,7 @@ function Advert() {
                   alt="add"
                   // style={{ height: "190px" }}
                 />
-                <h3>NAILS / BEAUTY</h3>
+                {/* <h3>NAILS / BEAUTY</h3> */}
               </a>
             ) : (
               <a
@@ -97,7 +97,7 @@ function Advert() {
                   alt="add"
                   // style={{ height: "190px" }}
                 />
-                <h3>POUCH / ASSOCCERIES</h3>
+                {/* <h3>POUCH / ASSOCCERIES</h3> */}
               </a>
             ) : (
               <a
@@ -118,7 +118,7 @@ function Advert() {
                   alt="add"
                   // style={{ height: "190px" }}
                 />
-                <h3>ADULT TOYS</h3>
+                {/* <h3>ADULT TOYS</h3> */}
               </a>
             ) : (
               <a

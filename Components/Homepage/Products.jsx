@@ -16,8 +16,8 @@ import { jgi } from "../Topbar";
 import { BsSearch } from "react-icons/bs";
 
 function Products({ products, addToCar }) {
-  // const halfLength = Math.ceil(products.length / 2);
-  // const firstHalf = products.slice(0, halfLength);
+  const halfLength = Math.ceil(products.length / 2);
+  const firstHalf = products.slice(0, halfLength);
 
   // filter products by category
   const dynamicBtn = [
@@ -48,6 +48,7 @@ function Products({ products, addToCar }) {
     <div className="product-session-con">
       {/* homepage product category container */}
       <div className="homepage-category-main-con">
+        <h3>Product category</h3>
         <div className="category-con">
           {dynamicBtn.map((btn, index) => (
             <button

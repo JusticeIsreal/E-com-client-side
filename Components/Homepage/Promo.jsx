@@ -22,7 +22,7 @@ function Promo() {
     <div>
       <section className="deal">
         <div className="content">
-          <h3>Deal of the day</h3>
+          {/* <h3>Deal of the day</h3> */}
           <h1>Up to 40% discount</h1>
           <Link href="/products" className="btn">
             Shop now

@@ -19,6 +19,7 @@ import Topbar from "../Components/Topbar";
 import Advantages from "../Components/Advantages";
 import Banner from "../Components/Homepage/Banner";
 import NewArrivals from "../Components/Homepage/NewArrivals";
+import PromoItems from "../Components/Homepage/PomoItems";
 import Products from "../Components/Homepage/Products";
 import NewsLetter from "../Components/Homepage/NewsLetter";
 import Promo from "../Components/Homepage/Promo";
@@ -157,17 +158,21 @@ const Homepage = () => {
           <Group position="center"></Group>
           <Banner />
           <div className="category-con">{/* <h1>CATEGORIES</h1> */}</div>
-          {/* <Advert /> */}
+          <Advert />
           {/* NEW ARRIVALS */}
-          {/* <NewArrivals products={products} /> */}
+          <NewArrivals products={products} />
+          <Promo />
+          <PromoItems products={products} />
+
           {/* <Advert /> */}
           {/* MAIN PRODUCT */}
           <Products products={products} addToCar={addToCar} />
-          <Advert />
+          {/* <Advert /> */}
           {/* SUBSCRIBE */}
           {/* <NewsLetter /> */}
           {/* PROMO */}
-          <Promo />
+          {/* <Promo />
+          <NewArrivals products={products} /> */}
           <Advantages />
           {/* REVIEWS */}
           <Review />

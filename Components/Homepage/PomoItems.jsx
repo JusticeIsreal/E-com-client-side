@@ -13,14 +13,14 @@ import {
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import Image from "next/image";
 
-function NewArrivals({ products }) {
+function PromoItems({ products }) {
 
   const [trendingProducts, setTrendingProducts] = useState([]);
   useEffect(() => {
     return onSnapshot(
       query(
         collection(db, "products"),
-        where("productclass", "==", "trending")
+        where("productclass", "==", "promo")
       ),
       (snapshot) => {
         setTrendingProducts(snapshot.docs);
@@ -31,7 +31,7 @@ function NewArrivals({ products }) {
     <div className="new-arrivals-main-con">
       <div className="new-arrivals-con">
         {/* heading */}
-        <h1>Trending products</h1>
+        <h1>Splash Sales</h1>
         {/* product container */}
 
         <div className="new-products-con">
@@ -51,7 +51,7 @@ function NewArrivals({ products }) {
   );
 }
 
-export default NewArrivals;
+export default PromoItems;
 
 function TrendingProducts({
   id,
