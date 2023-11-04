@@ -65,6 +65,9 @@ $txt-light-blue: #cfe8ff;
 // APP MAIN CON
 .app-main-con {
   overflow-x: hidden;
+  // border: 2px solid red;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 // icons
 .icon {
@@ -361,8 +364,8 @@ $txt-light-blue: #cfe8ff;
           font-size: 12px;
         }
         .new-products {
-          height: 200px;
-          width: 150px;
+          height: 180px;
+          width: 130px;
           overflow: hidden;
           position: relative;
           transition: transform 0.5s ease;
@@ -412,6 +415,7 @@ $txt-light-blue: #cfe8ff;
   padding: 5px;
   padding-bottom: 10px;
   overflow-x: hidden;
+
   // border: 2px solid red;
 
   @include responsive(bigphone) {
@@ -422,7 +426,11 @@ $txt-light-blue: #cfe8ff;
   .homepage-category-main-con {
     width: 100%;
     overflow-x: auto;
+    // border: 2px solid red;
 
+    h3 {
+      margin-bottom: -13px;
+    }
     .category-con {
       display: flex;
       flex-direction: row;
@@ -432,7 +440,7 @@ $txt-light-blue: #cfe8ff;
       padding: 10px 0;
       white-space: nowrap; /* Prevent text from wrapping within buttons */
       margin: 0 auto;
-
+      // border: 2px solid red;
       button {
         width: 130px; /* Set a minimum width for the buttons */
         height: 80px; /* Set the desired height */
@@ -540,12 +548,12 @@ $txt-light-blue: #cfe8ff;
   .product-main-con {
     @include flexDisplay(space-between, center, column);
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     // border: 2px solid red;
 
     h3 {
-      color: $font-light;
+      // color: $font-light;
       margin-right: auto;
       margin-top: 20px;
       font-size: 20px;
@@ -562,7 +570,6 @@ $txt-light-blue: #cfe8ff;
     }
 
     .products-con {
-      // @include flexDisplay(space-between, flex-start, row);
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -572,6 +579,13 @@ $txt-light-blue: #cfe8ff;
 
       @include responsive(bigphone) {
         gap: 15px;
+
+        // @include flexDisplay(space-around, center, row);
+        // margin-top: 30px;
+      }
+      @include responsive(tablet) {
+        @include flexDisplay(space-around, flex-start, row);
+
         // @include flexDisplay(space-around, center, row);
         // margin-top: 30px;
       }
@@ -592,11 +606,14 @@ $txt-light-blue: #cfe8ff;
 
         flex-basis: 130px;
         flex-grow: 1;
+
         @include responsive(bigphone) {
           flex-basis: 200px;
           // flex-grow: 1;
         }
-
+        @include responsive(tablet) {
+         flex-grow: 0;
+        }
         .product-name {
           // border: 2px solid red;
           margin-top: 3px;
@@ -687,6 +704,7 @@ $txt-light-blue: #cfe8ff;
           // height: 30px;
           // margin-top: 5px;
           font-size: 15px;
+          font-weight: 550;
 
           .product-price {
             // border: 2px solid red;
@@ -715,7 +733,7 @@ $txt-light-blue: #cfe8ff;
           font-size: 15px;
           line-height: 1.9;
           border: 0.1px solid $txt-blue;
-          color: $txt-blue;
+          // color: $txt-blue;
           border-radius: 5px;
           margin: 5px 0;
           cursor: pointer;

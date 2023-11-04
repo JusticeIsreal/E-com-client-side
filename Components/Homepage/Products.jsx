@@ -48,7 +48,7 @@ function Products({ products, addToCar }) {
     <div className="product-session-con">
       {/* homepage product category container */}
       <div className="homepage-category-main-con">
-        <h3>Product category</h3>
+        {/* <h3>Product category</h3> */}
         <div className="category-con">
           {dynamicBtn.map((btn, index) => (
             <button

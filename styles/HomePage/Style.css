@@ -20,6 +20,8 @@
 
 .app-main-con {
   overflow-x: hidden;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 .icon {
@@ -333,8 +335,8 @@
   font-size: 12px;
 }
 .new-arrivals-main-con .new-arrivals-con .new-products-con .new-products-case .new-products {
-  height: 200px;
-  width: 150px;
+  height: 180px;
+  width: 130px;
   overflow: hidden;
   position: relative;
   transition: transform 0.5s ease;
@@ -387,6 +389,9 @@
 .product-session-con .homepage-category-main-con {
   width: 100%;
   overflow-x: auto;
+}
+.product-session-con .homepage-category-main-con h3 {
+  margin-bottom: -13px;
 }
 .product-session-con .homepage-category-main-con .category-con {
   display: flex;
@@ -517,12 +522,11 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding-bottom: 10px;
 }
 .product-session-con .product-main-con h3 {
-  color: #666;
   margin-right: auto;
   margin-top: 20px;
   font-size: 20px;
@@ -549,6 +553,14 @@
     gap: 15px;
   }
 }
+@media only screen and (min-width: 1023px) {
+  .product-session-con .product-main-con .products-con {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
 .product-session-con .product-main-con .products-con .products {
   padding: 5px 5px 0 5px;
   border-radius: 5px;
@@ -560,6 +572,11 @@
 @media only screen and (min-width: 768px) {
   .product-session-con .product-main-con .products-con .products {
     flex-basis: 200px;
+  }
+}
+@media only screen and (min-width: 1023px) {
+  .product-session-con .product-main-con .products-con .products {
+    flex-grow: 0;
   }
 }
 .product-session-con .product-main-con .products-con .products .product-name {
@@ -647,6 +664,7 @@
   flex-direction: row;
   width: 100%;
   font-size: 15px;
+  font-weight: 550;
 }
 .product-session-con .product-main-con .products-con .products .price .product-price {
   text-align: center;
@@ -668,7 +686,6 @@
   font-size: 15px;
   line-height: 1.9;
   border: 0.1px solid #ff69b4;
-  color: #ff69b4;
   border-radius: 5px;
   margin: 5px 0;
   cursor: pointer;

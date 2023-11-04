@@ -87,7 +87,6 @@ function TrendingProducts({
               sizes="100vw"
             />
           </div>
-          {/* <img src={productimages[0]} alt="" /> */}
         </div>
       </Link>
       <h5 className="pname">{productname}</h5>
