@@ -570,24 +570,27 @@ $txt-light-blue: #cfe8ff;
     }
 
     .products-con {
-      display: flex;
-      flex-wrap: wrap;
+      // display: flex;
+      // flex-wrap: wrap;
       gap: 10px;
       // margin-top: 30px;
       width: 100%;
       // border: 2px solid green;
 
-      @include responsive(bigphone) {
-        gap: 15px;
+      // @include responsive(tablet) {
+      //   @include flexDisplay(space-around, flex-start, row);
+      // }
 
-        // @include flexDisplay(space-around, center, row);
-        // margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      @include responsive(bigphone) {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       }
       @include responsive(tablet) {
-        @include flexDisplay(space-around, flex-start, row);
-
-        // @include flexDisplay(space-around, center, row);
-        // margin-top: 30px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      @include responsive(desktop) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       }
 
       .products {
@@ -604,16 +607,16 @@ $txt-light-blue: #cfe8ff;
         // border: 2px solid red;
         box-shadow: 5px 10px 15px rgba(128, 128, 128, 0.162);
 
-        flex-basis: 130px;
-        flex-grow: 1;
+        // flex-basis: 130px;
+        // flex-grow: 1;
 
-        @include responsive(bigphone) {
-          flex-basis: 200px;
-          // flex-grow: 1;
-        }
-        @include responsive(tablet) {
-         flex-grow: 0;
-        }
+        // @include responsive(bigphone) {
+        //   flex-basis: 200px;
+        //   // flex-grow: 1;
+        // }
+        // @include responsive(tablet) {
+        //  flex-grow: 0;
+        // }
         .product-name {
           // border: 2px solid red;
           margin-top: 3px;
@@ -732,7 +735,8 @@ $txt-light-blue: #cfe8ff;
           text-align: center;
           font-size: 15px;
           line-height: 1.9;
-          border: 0.1px solid $txt-blue;
+          // border: 0.1px solid $txt-blue;
+          border: 0.1px solid $font-light;
           // color: $txt-blue;
           border-radius: 5px;
           margin: 5px 0;
