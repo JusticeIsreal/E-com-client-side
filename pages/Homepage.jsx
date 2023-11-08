@@ -103,7 +103,8 @@ const Homepage = () => {
             message: "Successful , Item added to cart",
           });
         }
-      } else {
+      } else { 
+        
         notifications.show({
           title: "Notification",
           message: "Failed, Item already in cart",
